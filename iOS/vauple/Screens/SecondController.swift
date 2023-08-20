@@ -13,7 +13,7 @@ class SecondController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-        
+        q
     private func setupUI() {
         view.backgroundColor = .blue
         // Creating the label
