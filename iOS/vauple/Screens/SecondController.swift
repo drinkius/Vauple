@@ -9,9 +9,20 @@ import UIKit
 
 class SecondController: UIViewController {
 
+
     private let vaultAddressSection: VaultAddressSectionView = {
         let sectionView = VaultAddressSectionView()
-//        sectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        sectionView.titleText = "Vault address"
+        sectionView.labelPlaceholder = "Enter Vault Address"
+        sectionView.storageKey = "VaultAddressKey"
+        return sectionView
+    }()
+
+    private let signerPrivateKeySection: VaultAddressSectionView = {
+        let sectionView = VaultAddressSectionView()
+        sectionView.titleText = "Signare private key"
+        sectionView.labelPlaceholder = "Enter Private Key"
+        sectionView.storageKey = "SignerPrivateKey"
         return sectionView
     }()
 
@@ -34,6 +45,7 @@ class SecondController: UIViewController {
 
         // Add the section view to the main stack view
         stackView.addArrangedSubview(vaultAddressSection)
+        stackView.addArrangedSubview(signerPrivateKeySection)
 
         // Add the main stack view to the view
         view.addSubview(stackView)
@@ -49,16 +61,40 @@ class SecondController: UIViewController {
 
 class VaultAddressSectionView: UIStackView {
 
+    var titleText: String? {
+        didSet {
+            titleLabel.text = titleText
+        }
+    }
+
+    var labelPlaceholder: String? {
+        didSet {
+            editTextField.placeholder = labelPlaceholder
+            if valueLabel.text?.isEmpty ?? true {
+                valueLabel.text = labelPlaceholder
+            }
+        }
+    }
+
+    var storageKey: String? {
+        didSet {
+            guard let key = storageKey else { return }
+            if DataStore.shared.geValue(key)?.isEmpty ?? true {
+                valueLabel.text = labelPlaceholder
+            } else {
+                valueLabel.text = DataStore.shared.geValue(key)
+            }
+        }
+    }
+
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Vault Address"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
 
-    private let valueLabel: UILabel = {
+    private lazy var valueLabel: UILabel = {
         let label = UILabel()
-        label.text = DataStore.shared.getVaultAddress() ?? "Please enter vault address"
         label.font = UIFont.systemFont(ofSize: 16)
         label.isUserInteractionEnabled = true
         return label
@@ -66,7 +102,7 @@ class VaultAddressSectionView: UIStackView {
 
     private let editTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Vault Address"
+        textField.placeholder = "Placeholder"
         textField.font = UIFont.systemFont(ofSize: 16)
         textField.isHidden = true
         return textField
@@ -77,6 +113,11 @@ class VaultAddressSectionView: UIStackView {
         button.setTitle("Save", for: .normal)
         return button
     }()
+
+    init(placeholder: String) {
+        labelPlaceholder = placeholder
+        super.init(frame: .zero)
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -114,11 +155,11 @@ class VaultAddressSectionView: UIStackView {
     }
 
     @objc private func saveButtonTapped() {
-        guard let newAddress = editTextField.text else {
+        guard let newValue = editTextField.text else {
             return
         }
-        DataStore.shared.setVaultAddress(newAddress)
-        valueLabel.text = newAddress
+        DataStore.shared.setValueForKey(storageKey!, value: newValue)
+        valueLabel.text = newValue
 
         valueLabel.isHidden = false
         editTextField.isHidden = true

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE1D6B5D2A92C45A009373B0 /* XRPLSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE1D6B5C2A92C45A009373B0 /* XRPLSwift */; };
 		CE1D6B5F2A93AC05009373B0 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D6B5E2A93AC05009373B0 /* DataStore.swift */; };
+		CE1D6B612A93F663009373B0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D6B602A93F663009373B0 /* BaseView.swift */; };
 		CE9A6FD12A2674F300FA9472 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A6FD02A2674F300FA9472 /* TabBarController.swift */; };
 		CE9A6FD32A26939800FA9472 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A6FD22A26939800FA9472 /* UIView+Extensions.swift */; };
 		CE9A6FD62A26942900FA9472 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A6FD52A26942900FA9472 /* Colors.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		CE1D6B5E2A93AC05009373B0 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		CE1D6B602A93F663009373B0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		CE9A6FD02A2674F300FA9472 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CE9A6FD22A26939800FA9472 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		CE9A6FD52A26942900FA9472 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				CE9A6FD22A26939800FA9472 /* UIView+Extensions.swift */,
 				CE9A6FD52A26942900FA9472 /* Colors.swift */,
 				CE1D6B5E2A93AC05009373B0 /* DataStore.swift */,
+				CE1D6B602A93F663009373B0 /* BaseView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				CE9A6FD12A2674F300FA9472 /* TabBarController.swift in Sources */,
 				CE9A6FD62A26942900FA9472 /* Colors.swift in Sources */,
 				CEA547DA2A2292D000EC6957 /* SceneDelegate.swift in Sources */,
+				CE1D6B612A93F663009373B0 /* BaseView.swift in Sources */,
 				CEA547EE2A250BDB00EC6957 /* SecondController.swift in Sources */,
 				CE1D6B5F2A93AC05009373B0 /* DataStore.swift in Sources */,
 			);

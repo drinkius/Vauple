@@ -13,24 +13,13 @@ class DataStore {
 
     private init() {}
 
-    // UserDefaults keys
-    private let vaultAddressKey = "VaultAddressKey"
-
-    // MARK: - Vault Address
-
-    // Store vault address in UserDefaults
-    func setVaultAddress(_ address: String) {
-        UserDefaults.standard.set(address, forKey: vaultAddressKey)
+    // Store value in UserDefaults
+    func setValueForKey(_ key: String, value: String) {
+        UserDefaults.standard.set(value, forKey: key)
     }
 
-    // Retrieve vault address from UserDefaults
-    func getVaultAddress() -> String? {
-        return UserDefaults.standard.string(forKey: vaultAddressKey)
+    // Retrieve value from UserDefaults
+    func geValue(_ key: String) -> String? {
+        return UserDefaults.standard.string(forKey: key)
     }
-
-    // Clear vault address from UserDefaults
-    func clearVaultAddress() {
-        UserDefaults.standard.removeObject(forKey: vaultAddressKey)
-    }
-
 }
