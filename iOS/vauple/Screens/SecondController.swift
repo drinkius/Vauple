@@ -18,9 +18,17 @@ class SecondController: UIViewController {
         return sectionView
     }()
 
+    private let signerPublicKeySection: VaultAddressSectionView = {
+        let sectionView = VaultAddressSectionView()
+        sectionView.titleText = "Signer address"
+        sectionView.labelPlaceholder = "Enter Address"
+        sectionView.storageKey = "SignerAddress"
+        return sectionView
+    }()
+
     private let signerPrivateKeySection: VaultAddressSectionView = {
         let sectionView = VaultAddressSectionView()
-        sectionView.titleText = "Signare private key"
+        sectionView.titleText = "Signer private key"
         sectionView.labelPlaceholder = "Enter Private Key"
         sectionView.storageKey = "SignerPrivateKey"
         return sectionView
@@ -45,6 +53,7 @@ class SecondController: UIViewController {
 
         // Add the section view to the main stack view
         stackView.addArrangedSubview(vaultAddressSection)
+        stackView.addArrangedSubview(signerPublicKeySection)
         stackView.addArrangedSubview(signerPrivateKeySection)
 
         // Add the main stack view to the view
