@@ -24,14 +24,14 @@ class TabBarController: UITabBarController {
 
         // Customize the appearance of the tab bar items
         let tabBarItem1 = UITabBarItem(
-            title: "First",
-            image: UIImage(systemName: "multiply.circle.fill"),
-            selectedImage: UIImage(systemName: "folder")
+            title: "Vault",
+            image: UIImage(systemName: "dollarsign.square.fill"),
+            selectedImage: UIImage(systemName: "dollarsign.square.fill")
         )
         let tabBarItem2 = UITabBarItem(
-            title: "Second",
-            image: UIImage(systemName: "multiply.circle.fill"),
-            selectedImage: UIImage(systemName: "folder")
+            title: "Accounts",
+            image: UIImage(systemName: "person.2.badge.gearshape"),
+            selectedImage: UIImage(systemName: "person.2.badge.gearshape.fill")
         )
 
         firstViewController.tabBarItem = tabBarItem1
